@@ -40,7 +40,7 @@ public class ChatLobbyManager {
                         chatHouse.joinRoom(roomNum, chatUser);
                         chatUser.write(chatHouse.getChatRooms().toString() + "방에 입장하였습니다.");
                         //inRoom = true;
-                        return false;
+                        return true;
                     } else {
                         chatUser.write("비밀번호가 틀렸습니다.");
                         return false;
