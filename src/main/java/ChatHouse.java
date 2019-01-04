@@ -26,12 +26,14 @@ public class ChatHouse {
         return chatRooms;
     }
 
+    // 해당 리스트에서만 처리해주는 것이 아니라. 쓰레드에서 자주 사용하는 메서드이므로 synchronized를 적용하는 것이 좋아 보입니다.
     public void joinRoom(int roomNum, ChatUser chatUser) {
         ChatRoom chatRoom = chatRooms.get(roomNum);
         chatRoom.addChatUser(chatUser);
         System.out.println("========방에 입장하셨습니다.==========");
     }
 
+    // 방안에서 유저리스트를 가지고 오면, 방을 접근해서 유저리스트를 가져오는 방식이 좋아 보입니다. 전체 방에서 순회하는 방식은 좋은 방식은 아닌것같습니다.
     public List<ChatUser> getUser(ChatUser chatUser) {
         for (ChatRoom cr : chatRooms) {
             if (cr.existUser(chatUser)) {
@@ -57,7 +59,7 @@ public class ChatHouse {
 
     public String chkRoom(int roomNum) {
         ChatRoom chatRoom = chatRooms.get(roomNum);
-        if (chatRoom.isPass()){
+        if (chatRoom.isHasPass()){
             return chatRoom.getPassword();
         }else {
             return null;
