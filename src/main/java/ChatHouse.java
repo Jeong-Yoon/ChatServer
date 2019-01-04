@@ -6,7 +6,7 @@ public class ChatHouse {
     private List<ChatUser> lobby;
     private List<ChatRoom> chatRooms;
 
-    public ChatHouse(){
+    public ChatHouse(){ //여기에 있는 synchronized는 굳이. 메소드들에 붙이는 게 좋다.
         lobby = Collections.synchronizedList(new ArrayList<>());
         chatRooms = Collections.synchronizedList(new ArrayList<>());
     }
@@ -51,6 +51,8 @@ public class ChatHouse {
         for (ChatRoom cr : chatRooms) {
             if (cr.existUser(chatUser)) {
                 cr.delete(chatUser);
+                //TODO 방에서 나왔을 때 로비에 다시 추가.
+                addChatUser(chatUser);
             }
         }
     }

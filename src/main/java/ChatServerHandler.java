@@ -97,8 +97,8 @@ public class ChatServerHandler extends Thread {
                     //ChatHouse에서 Lobby에 있는 사람 삭제하고, 컴퓨터 프로그램 종료
                     chatHouse.quit(chatUser);
                     chatUser.write("채팅프로그램을 종료합니다.");
-                    System.exit(0);
-                    //chatUser.close();
+                   // System.exit(0);
+                    chatUser.close();
                 }
             } else {
                 String message = chatUser.read();

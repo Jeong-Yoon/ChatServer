@@ -2,6 +2,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 채팅 서버 생성자
+ *
+ * 내부적으로 채팅과 관련된 자료구조 객체인 ChatHouse를 초기화한다.
+ *
+ */
 public class ChatServer {
     private int port;
     private ChatHouse chatHouse;
