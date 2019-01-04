@@ -8,10 +8,12 @@ public class ChatRoom {
     private String password;
     private boolean isPass;
 
-    public ChatRoom(String title, ChatUser chatUser) {
+    public ChatRoom(String title, ChatUser chatUser, String password, boolean isPass) {
         this.title = title;
         chatUsers = Collections.synchronizedList(new ArrayList<>());
         chatUsers.add(chatUser);
+        this.password = password;
+        this.isPass = isPass;
     }
 
     public String getTitle() {
@@ -49,4 +51,19 @@ public class ChatRoom {
     public void setPass(boolean pass) {
         isPass = pass;
     }
+
+    public void addChatUser(ChatUser chatUser) {
+        chatUsers.add(chatUser);
+    }
+    
+    public int cntUser(){
+        return chatUsers.size();
+    }
+
+    public void delete(ChatUser chatUser) {
+        if (chatUsers.contains(chatUser)) {
+            chatUsers.remove(chatUser);
+        }
+    }
+
 }
