@@ -53,7 +53,7 @@ public class ChatServerHandler extends Thread {
                     }
                     chatHouse.createRoom(title, chatUser, hasPass, password);
                     inRoom = true;
-                    chatUser.write(chatHouse.getChatRooms().toString()+ "방에 입장하였습니다.");
+                    chatUser.write(title+ "방에 입장하였습니다.");
                 } else if (message.equals("/list")) {
                     List<ChatRoom> chatRooms = chatHouse.getChatRooms();
                     int roomNum = 0;
