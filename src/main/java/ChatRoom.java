@@ -6,14 +6,14 @@ public class ChatRoom {
     private String title;
     private List<ChatUser> chatUsers;
     private String password;
-    private boolean isPass;
+    private boolean hasPass;
 
     public ChatRoom(String title, ChatUser chatUser, String password, boolean isPass) {
         this.title = title;
         chatUsers = Collections.synchronizedList(new ArrayList<>());
         chatUsers.add(chatUser);
         this.password = password;
-        this.isPass = isPass;
+        this.hasPass = isPass;
     }
 
     public String getTitle() {
@@ -44,12 +44,12 @@ public class ChatRoom {
         this.password = password;
     }
 
-    public boolean isPass() {
-        return isPass;
+    public boolean isHasPass() {
+        return hasPass;
     }
 
-    public void setPass(boolean pass) {
-        isPass = pass;
+    public void setHasPass(boolean hasPass) {
+        this.hasPass = hasPass;
     }
 
     public void addChatUser(ChatUser chatUser) {
