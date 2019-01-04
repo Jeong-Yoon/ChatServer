@@ -51,8 +51,9 @@ public class ChatHouse {
         for (ChatRoom cr : chatRooms) {
             if (cr.existUser(chatUser)) {
                 cr.delete(chatUser);
+//                cr.getChatUsers().remove(chatUser);
                 //TODO 방에서 나왔을 때 로비에 다시 추가.
-                addChatUser(chatUser);
+                //addChatUser(chatUser);
             }
         }
     }
@@ -68,5 +69,9 @@ public class ChatHouse {
 
     public int countChatUsers(int roomNum){
         return chatRooms.get(roomNum).cntUser();
+    }
+
+    public void removeRoom(int roomNum){
+        chatRooms.remove(roomNum);
     }
 }

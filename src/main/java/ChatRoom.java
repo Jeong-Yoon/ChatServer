@@ -61,9 +61,10 @@ public class ChatRoom {
     }
 
     public void delete(ChatUser chatUser) {
-        if (chatUsers.contains(chatUser)) {
+//        if (chatUsers.contains(chatUser)) {
             chatUsers.remove(chatUser);
-        }
+//        }
+        return;
     }
 
 }

@@ -58,7 +58,7 @@ public class ChatServerHandler extends Thread {
     }
 
     public void inTheRoom(ChatUser chatUser) {
-        ChatRoomManager chatRoomManager = new ChatRoomManager();
+        ChatRoomManager chatRoomManager = new ChatRoomManager(chatHouse);
         String message = chatUser.read();
         List<ChatUser> chatUsers = chatHouse.getUser(chatUser);
 
